@@ -27,7 +27,7 @@ const UserForm = ({formSubmit})=>{
             <input name="email" value={usr["email"]} type="email" className="form-control"
               onChange={handleChange} placeholder="Email"/>
           </div>
-          <div class="col-2">
+          <div className="col-2">
             <button type="submit" className="btn btn-primary mb-2" name="action">Submit</button>
           </div>
         </div>
