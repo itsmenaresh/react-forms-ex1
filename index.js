@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
 import Users from "./Users";
@@ -28,10 +28,12 @@ sendInvite(formData) {
 }
   render() {
     return (
-      <div>
+       <Fragment>
         <Navbar /><br />
-        <Users users={this.state.users} sendInvite={this.sendInvite}/>
-      </div>
+        <main role="main" className="container-fluid">
+          <Users users={this.state.users} sendInvite={this.sendInvite}/>
+        </main>
+      </Fragment>
     );
   }
 }
