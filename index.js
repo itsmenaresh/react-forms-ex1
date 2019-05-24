@@ -29,7 +29,7 @@ sendInvite(formData) {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar /><br />
         <Users users={this.state.users} sendInvite={this.sendInvite}/>
       </div>
     );

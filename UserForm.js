@@ -1,40 +1,37 @@
 import React, {useState} from "react";
 
 const UserForm = ({formSubmit})=>{
-  const [usr, setUsr] = useState({});
+  const [usr, setUsr] = useState({first_name:"", last_name: "", email: ""});
   const handleChange = (e)=>{
     const {name, value} = e.target;
     setUsr({...usr, [name]:value, id: new Date()});
   };
   const handleForm = (e)=> {
     e.preventDefault();
-    formSubmit(usr);
+    if (usr["first_name"] && usr["last_name"] && usr["email"]) formSubmit(usr);
     setUsr({first_name:"", last_name: "", email: ""});
   }
   return (
     <div>
-       <div className="row">
-        <form className="col s12" onSubmit={handleForm}>
-          <div className="row">
-            <div className="input-field col s3">
-              <input name="first_name" type="text" className="validate" 
-              onChange={handleChange} />
-              <label htmlFor="first_name">First Name</label>
-            </div>
-            <div className="input-field col s3">
-              <input name="last_name" type="text" value={usr["last_name"]} className="validate"
-              onChange={handleChange} />
-              <label htmlFor="last_name">Last Name</label>
-            </div>
-            <div className="input-field col s3">
-              <input name="email" type="email" className="validate"  onChange={handleChange} />
-              <label htmlFor="email">Email</label>
-            </div>
+      <form onSubmit={handleForm}>
+        <div className="form-row">
+          <div className="col">
+            <input name="first_name" value={usr["first_name"]} type="text" className="form-control"
+              onChange={handleChange} placeholder="First Name"/>
           </div>
-          <button className="btn waves-effect waves-light" type="submit" name="action">submit
-          </button>
-        </form>
-      </div> 
+          <div className="col">
+            <input name="last_name" value={usr["last_name"]} type="text" className="form-control"
+              onChange={handleChange} placeholder="Last Name"/>
+          </div>
+          <div className="col">
+            <input name="email" value={usr["email"]} type="email" className="form-control"
+              onChange={handleChange} placeholder="Email"/>
+          </div>
+          <div class="col-2">
+            <button type="submit" className="btn btn-primary mb-2" name="action">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }

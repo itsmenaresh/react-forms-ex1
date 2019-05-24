@@ -1,16 +1,12 @@
 import React from "react";
 
 const Navbar = () => {
-  return <nav>
-    <div className="nav-wrapper deep-purple lighten-2">
-      <a href="#" className="brand-logo">showcase</a>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
+  return <nav className="navbar navbar-dark bg-primary">
+	<a className="navbar-brand" href="#">ShowCase</a>
+	<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span className="navbar-toggler-icon"></span>
+	</button>
+</nav>
 }
 
 export default Navbar;
